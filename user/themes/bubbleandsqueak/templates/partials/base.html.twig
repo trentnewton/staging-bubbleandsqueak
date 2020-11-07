@@ -1,0 +1,149 @@
+{# {% set body_classes = body_class(['header-fixed', 'header-animated', 'header-dark', 'header-transparent', 'sticky-footer']) %} #}
+{# {% set grid_size = theme_var('grid-size') %} #}
+{% set compress = theme_var('production-mode') ? '.min.css' : '.css' %}
+{% use 'blocks/base.html.twig' %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}" dir="ltr" itemscope itemtype="http://schema.org/WebSite">
+    <head>
+    {% block head deferred %}
+        <meta charset="utf-8" />
+        <title>{% if page.header.googletitle is defined and not empty %}{{ page.header.googletitle }}{% else %}{% if page.title %}{{ page.title|e('html') }} | {% endif %}{{ site.title|e('html') }}{% endif %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% include 'partials/metadata.html.twig' %}
+        {% if page.find('/footer').header.facebookappkey is defined and not empty %}
+            <meta property="fb:app_id" content="{{ page.find('/footer').header.facebookappkey }}">
+        {% endif %}
+        {% if page.find('/footer').header.twitter.name is defined and not empty %}
+            <meta name="twitter:site" content="@{{ page.find('/footer').header.twitter.name }}" />
+        {% endif %}
+        <link rel="canonical" href="{{ page.url(true, true) }}" />
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ url('theme://dist/assets/img/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url('theme://dist/assets/img/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url('theme://dist/assets/img/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ url('theme://dist/assets/img/site.webmanifest') }}">
+        <link rel="mask-icon" href="{{ url('theme://dist/assets/img/safari-pinned-tab.svg') }}" color="#5bbad5">
+        {% if page.find('/footer').header.googlemaps.latitude is defined and not empty %}
+            <meta name="geo.position" content="{{ page.find('/footer').header.googlemaps.latitude }}; {{ page.find('/footer').header.googlemaps.longitude }}">
+        {% endif %}
+        <meta name="geo.placename" content="{{ site.title|e('html') }}">
+        {% if page.find('/footer').header.location.state is defined and not empty %}
+            <meta name="geo.region" content="AU-{{ page.find('/footer').header.location.state }}">
+        {% endif %}
+        {# <link rel="preload" as="style" href="{{ url('theme://dist/assets/css/app.css') }}" type="text/css"> #}
+        {% if page.find('/footer').header.googlemaps.key is defined and not empty %}
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link rel="preconnect" href="https://maps.gstatic.com">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://maps.googleapis.com">
+        {% endif %}
+        {% if page.find('/footer').header.facebookappkey is defined and not empty %}
+            <link rel="preconnect" href="https://www.facebook.com">
+            <link rel="preconnect" href="https://connect.facebook.net">
+        {% endif %}
+        {% if page.find('/footer').header.googleanalytics is defined and not empty %}
+            <link rel="preconnect" href="https://www.google-analytics.com">
+            <link rel="preconnect" href="https://www.googletagmanager.com">
+        {% endif %}
+    {% endblock head %}
+
+    {% block stylesheets %}
+        {# <link rel="stylesheet" href="https://use.typekit.net/zkx4ilo.css"> #}
+        {% do assets.addCss('theme://dist/assets/css/critical.css', { loading: 'inline', position: 'before', group:'head'} ) %}
+        {% do assets.addCss('theme://dist/assets/css/app.css', { media: 'print', onload: 'this.media=\'all\'', crossorigin: 'anonymous'} )|raw %}
+    {% endblock %}
+
+    {% block javascripts %}
+        {# {% do assets.addJs('jquery', 101) %} #}
+        {% do assets.addJs('theme://dist/assets/js/intersection-observer.js', { loading: 'inline', position: 'before', group:'head' } ) %}
+        {% do assets.addJs('theme://dist/assets/js/app.js', { group: 'bottom' }) %}
+    {% endblock %}
+
+    {% block assets deferred %}
+        {{ assets.css('head', { media: 'print', onload: 'this.media=\'all\''})|raw }}
+        {{ assets.js()|raw }}
+    {% endblock %}
+    {# <link rel="preload" href="{{ url('theme://dist/assets/js/app.js') }}" as="script"> #}
+    {# <link rel="preconnect" href="https://use.typekit.net"> #}
+    {# <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/b.otf') }}" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/b.woff') }}" type="font/woff" crossorigin="anonymous"> #}
+    <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/b.woff2') }}" type="font/woff2" crossorigin="anonymous">
+    {# <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/bi.otf') }}" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/bi.woff') }}" type="font/woff" crossorigin="anonymous"> #}
+    <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/bi.woff2') }}" type="font/woff2" crossorigin="anonymous">
+    {# <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/n.otf') }}" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/n.woff') }}" type="font/woff" crossorigin="anonymous"> #}
+    <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/n.woff2') }}" type="font/woff2" crossorigin="anonymous">
+    {# <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/ni.otf') }}" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/ni.woff') }}" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/ni.woff2') }}" type="font/woff2" crossorigin="anonymous"> #}
+    {% if page.find('/footer').header.googleanalytics is defined and not empty %}<script async defer src="https://www.googletagmanager.com/gtag/js?id={{ page.find('/footer').header.googleanalytics }}"></script>{% endif %}
+    <script>{% if page.find('/footer').header.googleanalytics is defined and not empty %}window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '{{ page.find('/footer').header.googleanalytics }}');{% endif %}{% if page.find('/footer').header.facebookappkey is defined and not empty %}window.fbAsyncInit=function(){FB.init({appId:"{{ page.find('/footer').header.facebookappkey }}",cookie:!0,xfbml:!0,version:"v6.0"}),FB.AppEvents.logPageView()},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||((o=e.createElement(n)).id=t,o.src="https://connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");{% endif %}
+    </script>
+    {# {% include 'partials/google-analytics.html.twig' with {'page': page.find('/footer', true)} %} #}
+    {# {% include 'partials/facebook-sdk.html.twig' with {'page': page.find('/footer', true)} %} #}
+    </head>
+    <body id="top" class="{{ page.template }} {{ page.title|hyphenize }}" itemscope itemtype="http://schema.org/WebPage">
+        <noscript>Please enable Javascript to use this site!</noscript>
+        <a id="skip-nav" tabindex="0" class="show-on-focus" href="#maincontent">Skip to main content</a>
+        {% block notice %}
+            {% include 'partials/notice.html.twig' with {'page': page.find('/notice', true)} %}
+        {% endblock %}
+            {% block header %}
+                {% include 'partials/navigation.html.twig' with {'page': page.find('/footer', true)} %}
+            {% endblock %}
+
+            {% block hero %}{% endblock %}
+
+            {% block body %}
+                {% block messages %}
+                    {% include 'partials/messages.html.twig' ignore missing %}
+                {% endblock %}
+                {{ block('content_surround') }}
+            {% endblock %}
+
+            {% block footer %}
+                {% include 'partials/footer.html.twig' with {'page': page.find('/footer', true)} %}
+            {% endblock %}
+
+        {% block bottom deferred %}
+            {{ assets.js('bottom', {crossorigin: 'anonymous'})|raw }}
+        {% endblock %}
+        {#<script>
+            var lazyLoadInstance = new LazyLoad({
+                elements_selector: ".lazy",
+                load_delay: 300
+            });
+            lazyLoadInstance.update();
+        </script>#}
+        {#<script>
+            function lCss(u, m) {
+                var l = document.createElement('link');
+                l.rel = 'stylesheet';
+                l.type = 'text/css';
+                l.href = u;
+                l.media = m;
+                document.getElementsByTagName('head')[0].insertBefore(l, document.getElementsByTagName('head')[0].firstChild);
+            }
+            function dCss() {
+                lCss('/dist/assets/css/app.css', 'all')
+            }
+            if (window.addEventListener) {
+                window.addEventListener('DOMContentLoaded', dCss, false)
+            } else {
+                window.onload=dCss
+            }
+        </script>#}
+        {#<script type="text/javascript">
+
+            var giftofspeed = document.createElement('link');
+            giftofspeed.rel = 'stylesheet';
+            giftofspeed.href = '/dist/assets/css/app.css';
+            giftofspeed.type = 'text/css';
+            var godefer = document.getElementsByTagName('link')[0];
+            godefer.parentNode.insertBefore(giftofspeed, godefer);#}
+
+            {#var s=document.createElement("link");s.rel="stylesheet";s.href="{{ theme_url }}/dist/assets/css/app.css";s.type="text/css";var t=document.getElementsByTagName("link")[0];t.parentNode.insertBefore(s,t);
+        </script>#}
+        {% include 'partials/svg.html.twig' ignore missing %}
+    </body>
+</html>

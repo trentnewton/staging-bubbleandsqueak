@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /backup/
+Disallow: /bin/
+Disallow: /cache/
+Disallow: /error/
+Disallow: /grav/
+Disallow: /logs/
+Disallow: /system/
+Disallow: /vendor/
+Disallow: /user/
+Allow: /user/pages/
+Allow: /user/themes/
+Allow: /user/images/
+Allow: /
+
+Sitemap: https://www.bubbleandsqueak.net.au/sitemap.xml
