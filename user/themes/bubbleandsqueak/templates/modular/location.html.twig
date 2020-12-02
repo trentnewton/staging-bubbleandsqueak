@@ -1,0 +1,368 @@
+{% set site_details = page.find('/site-details') %}
+<section id="{{ page.header.title|hyphenize }}" class="wrapper spotlight">
+    <div class="grid-container inner">
+        <div class="grid-x grid-margin-x align-middle">
+            {% if page.header.location.streetaddress %}
+                <div class="cell medium-6{% if page.header.map_align == 'right' %} small-order-2 medium-order-1{% else %} small-order-2 medium-order-2{% endif %} location {% if page.header.map_align == 'right' %}left{% else %}right{% endif %}">
+                    {% if page.header.link_to_page.text %}
+                        <a class="special header-link {% if page.header.map_align == 'right' %}left{% else %}right{% endif %}" href="{{ base_url }}{{ page.header.link_to_page.link|first }}">
+                            <h2 data-aos="fade-{% if page.header.map_align == 'right' %}left{% else %}right{% endif %}" class="major bubbles" itemprop="headline">{{ page.header.title }}</h2>
+                        </a>
+                    {% else %}
+                        <h2 data-aos="fade-{% if page.header.map_align == 'right' %}left{% else %}right{% endif %}" class="major bubbles" itemprop="headline">{{ page.header.title }}</h2>
+                    {% endif %}
+                    <div data-aos="fade" data-aos-delay="500">{{ content|raw }}</div>
+                    <div data-aos="fade" data-aos-delay="500">
+                        {% if page.header.location.streetaddress %}
+                            <div class="flex-container info">
+                                <div class="info-icon">
+                                    <svg class="icon icon-apartment-building" role="img"><use xlink:href="#icon-apartment-building"></use></svg>
+                                </div>
+                                <div>
+                                    <span class="info-title">Address</span><br>
+                                    <div itemscope itemtype="https://schema.org/LocalBusiness">
+                                        {% if page.header.location.name %}
+                                                <span class="info-text" itemprop="name">{{ page.header.location.name }},</span><br>
+                                        {% endif %}
+                                        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                            {% if page.header.location.streetaddress %}
+                                                <span class="info-text" itemprop="streetAddress">{{ page.header.location.streetaddress }},</span><br>
+                                            {% endif %}
+                                            {% if page.header.location.suburb %}
+                                                <span class="info-text" itemprop="addressLocality">{{ page.header.location.suburb }}</span>&nbsp;
+                                            {% endif %}
+                                            {% if page.header.location.state %}
+                                                <span class="info-text" itemprop="addressRegion">{{ page.header.location.state }}</span>&nbsp;
+                                            {% endif %}
+                                            {% if page.header.location.postcode %}
+                                                <span class="info-text" itemprop="postalCode">{{ page.header.location.postcode }}</span>
+                                            {% endif %}
+                                        </div>
+                                        {# {% if background_image %}
+                                            <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                                <meta itemprop="url" content="{{ base_url_absolute }}{{ background_image.url }}">
+                                                <meta itemprop="width" content="{{ background_image.width }}">
+                                                <meta itemprop="height" content="{{ background_image.height }}">
+                                            </div>
+                                        {% endif %} #}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if page.header.opening_hours.daystart %}
+                            <div class="flex-container info">
+                                <div class="info-icon">
+                                    <svg class="icon icon-clock" role="img"><use xlink:href="#icon-clock"></use></svg>
+                                </div>
+                                <div>
+                                    <span class="info-title">Opening Hours</span><br>
+                                    <div itemscope itemtype="https://schema.org/LocalBusiness">
+                                        <span class="hide" itemprop="name">{{ site.title|e('html') }}</span>
+                                        <span class="info-text" itemprop="description">{{ page.header.opening_hours.description }}</span><br>
+                                        <span class="info-text" itemprop="openingHours" content="{{ page.header.opening_hours.daystart|date("D")|slice(0, 2) }}-{{ page.header.opening_hours.dayend|date("D")|slice(0, 2) }}{% if page.header.opening_hours.allday.allday %}{% else %} {{ page.header.opening_hours.timestart|date('H:i') }}-{{ page.header.opening_hours.timeend|date('H:i') }}{% endif %}">
+                                            {{ page.header.opening_hours.daystart|date("l") }}&nbsp;&ndash;&nbsp;{{ page.header.opening_hours.dayend|date("l") }},&nbsp;{% if page.header.opening_hours.allday.allday %}All Day{% else %}{{ page.header.opening_hours.timestart|date('h:ia') }}&nbsp;&ndash;&nbsp;{{ page.header.opening_hours.timeend|date('h:ia') }}{% endif %}
+                                        </span>
+                                        {# <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                            <meta itemprop="url" content="{{ base_url_absolute }}{{ background_image.url }}">
+                                            <meta itemprop="width" content="{{ background_image.width }}">
+                                            <meta itemprop="height" content="{{ background_image.height }}">
+                                        </div> #}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if page.header.location_number %}
+                            <div class="flex-container info">
+                                <div class="info-icon">
+                                    <svg class="icon icon-call" role="img"><use xlink:href="#icon-call"></use></svg>
+                                </div>
+                                <div>
+                                    <span class="info-title">Call</span><br>
+                                    <div itemscope itemtype="https://schema.org/LocalBusiness">
+                                        <span class="hide" itemprop="name">{{ site.title|e('html') }}</span>
+                                        <span class="info-text" itemprop="telephone" content="{{ page.header.location_number }}">{{ page.header.location_number }}</span>
+                                        {# <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                            <meta itemprop="url" content="{{ base_url_absolute }}{{ background_image.url }}">
+                                            <meta itemprop="width" content="{{ background_image.width }}">
+                                            <meta itemprop="height" content="{{ background_image.height }}">
+                                        </div> #}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if page.header.link_to_page.text %}
+                            <span data-aos="fade" data-aos-delay="1700" ><a class="special" href="{{ base_url }}{{ page.header.link_to_page.link|first }}">{{ page.header.link_to_page.text }}</a></span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="cell medium-6{% if page.header.map_align == 'right' %} image-right small-order-1 medium-order-2{% else %} small-order-1 medium-order-1{% endif %}">
+                    {% if page.header.googlemaps.latitude %}
+                        <div class="map-container">
+                            <div id="map-{{ page.header.title|hyphenize }}" class="google-map"></div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="cell small-12">
+                    <h2 data-aos="fade" class="major bubbles" itemprop="headline">{{ page.header.title }}</h2>
+                    <div data-aos="fade" data-aos-delay="500">{{ content|raw }}</div>
+                    {% if page.header.payicon %}
+                        <ul class="menu expanded card-icons">
+                        {% for icon in page.header.payicon %}
+                            <li data-aos="fade-up" data-aos-duration="500">
+                                <svg class="icon icon-{{ icon.icon }}" role="img" aria-labelledby="{{ icon.icon }}-title">
+                                    <title id="{{ icon.icon }}-title">{{ icon.title }}</title>
+                                    <use xlink:href="#icon-{{ icon.icon }}"></use>
+                                </svg>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if page.header.link_to_page.text %}
+                        <span data-aos="fade" data-aos-delay="1700" ><a class="special" href="{{ base_url }}{{ page.header.link_to_page.link|first }}">{{ page.header.link_to_page.text }}</a></span>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% if page.header.googlemaps.latitude %}
+        <script>
+            {# function google_maps_init() {
+                'use strict'
+
+                var bubbleandsqueak = {lat: {{ page.header.googlemaps.latitude }}, lng: {{ page.header.googlemaps.longitude }}}
+                var markerElement = document.getElementById('marker')
+                var mapElement = document.getElementById('map-{{ page.header.title|hyphenize }}')
+                var map = new google.maps.Map(mapElement, {
+                    zoom: {{ page.header.googlemaps.zoom }},
+                    center: bubbleandsqueak,
+                    styles: [
+                        {
+                            "featureType": "water",
+                            "stylers": [
+                                {
+                                    "color": "#40c1d9"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "administrative",
+                            "elementType": "labels.text.stroke",
+                            "stylers": [
+                                {
+                                    "color": "#f5f6f6"
+                                },
+                                {
+                                    "weight": 6
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "administrative",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                                {
+                                    "color": "#008199"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "geometry.stroke",
+                            "stylers": [
+                                {
+                                    "color": "#bfeaf2"
+                                },
+                                {
+                                    "lightness": 0
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.arterial",
+                            "elementType": "geometry.stroke",
+                            "stylers": [
+                                {
+                                    "color": "#7fd5e5"
+                                },
+                                {
+                                    "lightness": 0
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road",
+                            "elementType": "labels.text.stroke",
+                            "stylers": [
+                                {
+                                    "lightness": 0
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                                {
+                                    "lightness": 0
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "labels.icon"
+                        },
+                        {
+                            "featureType": "landscape",
+                            "elementType": "labels",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "landscape",
+                            "stylers": [
+                                {
+                                    "lightness": 0
+                                },
+                                {
+                                    "color": "#bfdbdd"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "landscape.man_made",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "water",
+                            "elementType": "labels.text.stroke",
+                            "stylers": [
+                                {
+                                    "lightness": 100
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "water",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                                {
+                                    "lightness": -100
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                                {
+                                    "hue": "#40939b"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels.text.stroke",
+                            "stylers": [
+                                {
+                                    "lightness": 100
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "hue": "#006f79"
+                                },
+                                {
+                                    "saturation": 0
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "geometry",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "color": "#7fb7bc"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "color": "#00accc"
+                                },
+                                {
+                                    "lightness": 0
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.arterial",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "color": "#bfdbdd"
+                                },
+                                {
+                                    "lightness": 0
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels",
+                            "stylers": [
+                                {
+                                    "visibility": "simplified"
+                                }
+                            ]
+                        }
+                    ]
+                });
+                var icon = {
+                    url: '{{ theme_url }}/dist/assets/img/location-pin.svg',
+                    anchor: new google.maps.Point(69,118),
+                    scaledSize: new google.maps.Size(140,140)
+                };
+                var marker = new google.maps.Marker({
+                    position: bubbleandsqueak,
+                    map: map,
+                    icon: icon
+                });
+                // map.markers.push(marker);
+                var infowindow = new google.maps.InfoWindow({
+                    content: markerElement.innerHTML
+                });
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.open(map, marker);
+                });
+                markerElement.style.opacity = 1; //
+                // listen for the window resize event & trigger Google Maps to update too
+                window.onresize = function() {
+                    var currCenter = map.getCenter();
+                    google.maps.event.trigger(map, 'resize');
+                    map.setCenter(currCenter);
+                };
+            }; #}
+
+            function google_maps_init(){"use strict";var e={lat:{{ page.header.googlemaps.latitude }},lng:{{ page.header.googlemaps.longitude }}},t=(document.getElementById("marker"),document.getElementById("map-{{ page.header.title|hyphenize }}")),l=new google.maps.Map(t,{zoom:{{ page.header.googlemaps.zoom }},center:e,styles:[{featureType:"water",stylers:[{color:"#40c1d9"}]},{featureType:"administrative",elementType:"labels.text.stroke",stylers:[{color:"#f5f6f6"},{weight:6}]},{featureType:"administrative",elementType:"labels.text.fill",stylers:[{color:"#008199"}]},{featureType:"road.highway",elementType:"geometry.stroke",stylers:[{color:"#bfeaf2"},{lightness:0}]},{featureType:"road.arterial",elementType:"geometry.stroke",stylers:[{color:"#7fd5e5"},{lightness:0}]},{featureType:"road",elementType:"labels.text.stroke",stylers:[{lightness:0}]},{featureType:"road",elementType:"labels.text.fill",stylers:[{lightness:0}]},{featureType:"road.highway",elementType:"labels.icon"},{featureType:"landscape",elementType:"labels",stylers:[{visibility:"off"}]},{featureType:"landscape",stylers:[{lightness:0},{color:"#bfdbdd"}]},{featureType:"landscape.man_made",stylers:[{visibility:"off"}]},{featureType:"water",elementType:"labels.text.stroke",stylers:[{lightness:100}]},{featureType:"water",elementType:"labels.text.fill",stylers:[{lightness:-100}]},{featureType:"poi",elementType:"labels.text.fill",stylers:[{hue:"#40939b"}]},{featureType:"poi",elementType:"labels.text.stroke",stylers:[{lightness:100}]},{featureType:"poi",elementType:"labels.icon",stylers:[{hue:"#006f79"},{saturation:0}]},{featureType:"poi",elementType:"geometry",stylers:[{visibility:"on"},{color:"#7fb7bc"}]},{featureType:"road.highway",elementType:"geometry.fill",stylers:[{color:"#00accc"},{lightness:0}]},{featureType:"road.arterial",elementType:"geometry.fill",stylers:[{color:"#bfdbdd"},{lightness:0}]},{featureType:"poi",elementType:"labels",stylers:[{visibility:"simplified"}]}]}),s={url:"{{ theme_url }}/dist/assets/img/location-pin.svg",anchor:new google.maps.Point(69,118),scaledSize:new google.maps.Size(140,140)};new google.maps.Marker({position:e,map:l,icon:s});window.onresize=function(){var e=l.getCenter();google.maps.event.trigger(l,"resize"),l.setCenter(e)}};
+        </script>
+
+    {% endif %}
+</section>
