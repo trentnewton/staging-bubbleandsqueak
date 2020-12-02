@@ -62,11 +62,13 @@
                         </div>
                     </div>
                 </div> #}
-                <div class="flex-container">
-                    <a href="tel:{{ page.header.location.number|replace({' ': ''}) }}" class="small button">
-                        <svg class="icon icon-call"><use xlink:href="#icon-call"></use></svg>&nbsp;Phone:&nbsp;{{ page.header.location.number }}
-                    </a>
-                </div>
+                {% if page.header.number %}
+                    <div class="flex-container">
+                        <a href="tel:{{ page.header.number|replace({' ': ''}) }}" class="small button">
+                            <svg class="icon icon-call"><use xlink:href="#icon-call"></use></svg>&nbsp;Phone:&nbsp;{{ page.header.number }}
+                        </a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
