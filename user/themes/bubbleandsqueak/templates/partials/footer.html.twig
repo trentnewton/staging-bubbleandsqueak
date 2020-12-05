@@ -7,17 +7,17 @@
 			{# <div data-aos="fade-right" data-aos-delay="1000" class="first-column large-6 medium-6 cell"> #}
             <div data-aos="fade-right" data-aos-delay="1000" class="first-column">
 				<ul class="menu social">
-					{% if page.header.facebook.url %}
+					{% if page.find('/site-details').header.facebook.url %}
 						<li itemprop="url">
-							<a href="{{ page.header.facebook.url }}" class="small button" title="Visit us on Facebook" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.header.facebook.icon }}" role="img"><use xlink:href="#icon-{{ page.header.facebook.icon }}"></use></svg>&nbsp;Facebook</a>
+							<a href="{{ page.find('/site-details').header.facebook.url }}" class="small button" title="Visit us on Facebook" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.facebook.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.facebook.icon }}"></use></svg>&nbsp;Facebook</a>
 						</li>
 					{% endif %}
-					{% if page.header.instagram.url %}
+					{% if page.find('/site-details').header.instagram.url %}
 						<li itemprop="url">
-							<a href="{{ page.header.instagram.url }}" class="small button" title="Follow us on Instagram" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.header.instagram.icon }}" role="img"><use xlink:href="#icon-{{ page.header.instagram.icon }}"></use></svg>&nbsp;Instagram</a>
+							<a href="{{ page.find('/site-details').header.instagram.url }}" class="small button" title="Follow us on Instagram" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.instagram.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.instagram.icon }}"></use></svg>&nbsp;Instagram</a>
 						</li>
 					{% endif %}
-                    {% if page.header.location.number %}
+                    {% if page.find('/site-details').header.number %}
                         <li>
                             <div class="flex-container info">
                                 <div class="info-icon">
@@ -27,12 +27,12 @@
                                     <span class="info-title">Call</span><br>
                                     <div itemscope itemtype="https://schema.org/LocalBusiness">
                                         <span class="hide" itemprop="name">{{ site.title|e('html') }}</span>
-                                        <span class="info-text" itemprop="telephone" content="{{ page.header.number }}">{{ page.header.location.number }}</span>
-                                        <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                        <span class="info-text" itemprop="telephone" content="{{ page.find('/site-details').header.number }}">{{ page.find('/site-details').header.number }}</span>
+                                        {# <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                                             <meta itemprop="url" content="{{ base_url_absolute }}{{ background_image.url }}">
                                             <meta itemprop="width" content="{{ background_image.width }}">
                                             <meta itemprop="height" content="{{ background_image.height }}">
-                                        </div>
+                                        </div> #}
                                     </div>
                                 </div>
                             </div>
@@ -130,11 +130,11 @@
 				<ul role="menu" class="menu">
 					{% set currentYear = now|date("Y") %}
 					<li class="menu-text" role="none">&copy;{{ currentYear }} {{ site.title|e('html') }}.</li>
-					{% if page.header.privacy_policy_page %}
-						<li class="menu-text" role="menuitem" itemprop="url"><a href="{{ base_url }}{{ page.header.privacy_policy_page }}" itemprop="name">Privacy</a></li>
+					{% if page.find('/site-details').header.privacy_policy_page %}
+						<li class="menu-text" role="menuitem" itemprop="url"><a href="{{ base_url }}{{ page.find('/site-details').header.privacy_policy_page }}" itemprop="name">Privacy</a></li>
 					{% endif %}
-                    {% if page.header.terms_and_conditions_page %}
-                        <li class="menu-text" role="menuitem" itemprop="url"><a href="{{ base_url }}{{ page.header.terms_and_conditions_page }}" itemprop="name">Terms</a></li>
+                    {% if page.find('/site-details').header.terms_and_conditions_page %}
+                        <li class="menu-text" role="menuitem" itemprop="url"><a href="{{ base_url }}{{ page.find('/site-details').header.terms_and_conditions_page }}" itemprop="name">Terms</a></li>
                     {% endif %}
 				</ul>
 			</nav>
