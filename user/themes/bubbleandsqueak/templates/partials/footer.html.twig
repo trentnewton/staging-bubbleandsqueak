@@ -17,9 +17,9 @@
 							<a href="{{ page.find('/site-details').header.instagram.url }}" class="small button" title="Follow us on Instagram" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.instagram.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.instagram.icon }}"></use></svg>&nbsp;Instagram</a>
 						</li>
 					{% endif %}
-					{% if page.find('/site-details').header.twitter.url %}
+					{% if page.find('/site-details').header.twitter.name %}
 						<li itemprop="url">
-							<a href="{{ page.find('/site-details').header.twitter.url }}" class="small button" title="Follow us on Twitter" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.twitter.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.twitter.icon }}"></use></svg>&nbsp;Twitter</a>
+							<a href="https://twitter.com/{{ page.find('/site-details').header.twitter.name }}" class="small button" title="Follow us on Twitter" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.twitter.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.twitter.icon }}"></use></svg>&nbsp;Twitter</a>
 						</li>
 					{% endif %}
                     {% if page.find('/site-details').header.number %}
