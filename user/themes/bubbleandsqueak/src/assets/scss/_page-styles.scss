@@ -215,6 +215,17 @@ a.special {
 		// 	position: relative;
 		// }
 
+		a {
+			color: $anchor-color-hover;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: $white;
+			}
+
+		}
+
 		.image-area {
 
 			img {

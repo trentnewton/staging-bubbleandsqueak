@@ -90,6 +90,17 @@
                                 </div>
                             </div>
                         {% endif %}
+                        {% if page.header.location_facebook.url %}
+                            <div class="flex-container info">
+                                <div class="info-icon">
+                                    <svg class="icon icon-{{ page.header.location_facebook.icon }}" role="img"><use xlink:href="#icon-{{ page.header.location_facebook.icon }}"></use></svg>
+                                </div>
+                                <div>
+                                    <span class="info-title">Facebook</span><br>
+                                    <a href="{{ page.header.location_facebook.url }}">Visit the Facebook page</a>
+                                </div>
+                            </div>
+                        {% endif %}
                         {% if page.header.link_to_page.text %}
                             <span data-aos="fade" data-aos-delay="1700" ><a class="special" href="{{ base_url }}{{ page.header.link_to_page.link|first }}">{{ page.header.link_to_page.text }}</a></span>
                         {% endif %}
