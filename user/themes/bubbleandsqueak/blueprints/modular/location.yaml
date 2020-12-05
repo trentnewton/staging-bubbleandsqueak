@@ -44,7 +44,7 @@ form:
               title: Google Maps Information
               help: Help text
               info: Configuration for Google Maps
-              text: Enter in details for Google Maps
+              text: Enter in details for Google Maps (Please add a tag of 'location' under Taxonomies on the Options tab)
               collapsed: true      # Initial state of fieldset (see collapsible option)
               collapsible: true    # Whether one can expand the fieldset or not
               fields:
@@ -128,3 +128,17 @@ form:
                   multiple: true
                   validate:
                     type: commalist
+        # options:
+        #   type: tab
+        #   title: PLUGIN_ADMIN.OPTIONS
+
+        #   fields:
+        #     taxonomies:
+        #       fields:
+        #         header.taxonomy.tag:
+        #           type: selectize
+        #           label: Tag
+        #           classes: fancy
+        #           default: 'location'
+        #           validate:
+        #             type: commalist
