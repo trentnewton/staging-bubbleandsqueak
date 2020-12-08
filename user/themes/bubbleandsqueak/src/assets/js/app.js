@@ -70,11 +70,11 @@ window.onload = function() {
           rnd(20, 80) +
           "%; left:" +
           rnd(0, 95) +
-          "%;width:" +
+          "%; width:" +
           size +
           "px; height:" +
           size +
-          "px;animation-delay: " +
+          "px; animation-delay: " +
           rnd(0, 30) / 10 +
           's;"></span>'
         );

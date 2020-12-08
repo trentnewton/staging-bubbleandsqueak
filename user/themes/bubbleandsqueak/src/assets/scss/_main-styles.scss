@@ -26,7 +26,7 @@ html {
 
 a {
 	@extend a;
-	transition: all $transition-time;
+	transition: color $transition-time;
 }
 
 ::selection {

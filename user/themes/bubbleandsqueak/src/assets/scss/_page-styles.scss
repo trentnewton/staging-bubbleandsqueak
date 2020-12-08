@@ -448,13 +448,14 @@ a.special {
 		&:active {
 
 			h2 {
-				color: $anchor-color-hover;
+				color: $header-color;
 			}
 			
 			&.left {
 
 				&::before {
-					left: rem-calc(-5px);
+					// left: rem-calc(-5px);
+					transform: translate3d(rem-calc(-5px),0,0) rotate(180deg) scale(1.5)
 				}
 				
 			}
@@ -462,7 +463,8 @@ a.special {
 			&.right {
 	
 				&::before {
-					right: rem-calc(-5px);
+					// right: rem-calc(-5px);
+					transform: translate3d(rem-calc(5px),0,0) scale(1.5)
 				}
 				
 			}
@@ -470,8 +472,9 @@ a.special {
 		}
 
 		h2 {
+			color: $anchor-color-hover;
 			padding-bottom: rem-calc(12);
-			// transition: all $transition-time;
+			transition: color $transition-time;
 		}
 
 		&::before {
@@ -484,7 +487,8 @@ a.special {
 
 			&::before {
 				left: 0;
-				transform: rotate(180deg) scale(1.5);
+				// transform: translateZ(0px) rotate(180deg) translateY(5px);
+				transform: translate3d(0px,0,0) rotate(180deg) scale(1.5);
 			}
 			
 		}
@@ -493,6 +497,7 @@ a.special {
 
 			&::before {
 				right: 0;
+				transform: translate3d(0px,0,0) scale(1.5);
 			}
 			
 		}
