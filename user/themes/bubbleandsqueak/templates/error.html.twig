@@ -22,7 +22,12 @@
 			<div class="grid-container inner">
 				<div class="grid-x grid-margin-x">
 	                <div class="cell medium-6">
-                		<img class="lazy" data-src="/user/assets/error.jpg" alt="White Pomeranian puppy inside the washing machine." width="1920" height="1281">
+						{% set image_url = '/user/assets/error.jpg' %}
+						<picture>
+							<source data-src="{{ image_url|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }}" type="image/webp">
+                        	<source data-src="{{ image_url }}" type="image/jpeg"> 
+							<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAApJREFUeNpjYAAAAAIAAeUn3vwAAAAASUVORK5CYII=" data-src="{{ image_url }}" alt="White Pomeranian puppy inside the washing machine." width="1920" height="1281">
+						</picture>
 					</div>
 					<div class="cell medium-6">
 						<h2 class="major" itemprop="headline">Whoops! Looks like this page doesn't exist.</h2>

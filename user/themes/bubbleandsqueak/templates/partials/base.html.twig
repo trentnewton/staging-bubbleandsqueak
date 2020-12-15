@@ -51,6 +51,37 @@
     {% block stylesheets %}
         {# <link rel="stylesheet" href="https://use.typekit.net/zkx4ilo.css"> #}
         {% do assets.addCss('theme://dist/assets/css/critical.css', { loading: 'inline', position: 'before', group:'head'} ) %}
+        {% set hero_image = page.header.hero_image ? page.media[page.header.hero_image] : page.media.images|first %}
+        {% if hero_image %}
+            <style>
+                .no-webp .banner,
+                .banner {
+                    background-image: 
+                        -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7))),
+                        url({{ hero_image.url }});
+                    background-image:
+                        linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7)),
+                        url({{ hero_image.url }});
+                }
+                .webp .banner {
+                    background-image: 
+                        -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7))),
+                        url({{ hero_image.url|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }} }});
+                    background-image:
+                        linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7)),
+                        url({{ hero_image.url|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }} }});"
+                } 
+            </style>
+        {% else %}
+            <style>
+                .banner {
+                    background-image:
+                        -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7)));
+                    background-image:
+                        linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7));
+                }
+            </style>
+        {% endif %}
         {% do assets.addCss('theme://dist/assets/css/app.css', { media: 'print', onload: 'this.media=\'all\'', crossorigin: 'anonymous'} )|raw %}
     {% endblock %}
 
@@ -366,8 +397,10 @@
         {% block header %}
             {% include 'partials/navigation.html.twig' with {'page': page.find('/site-details', true)} %}
         {% endblock %}
-
-        {% block hero %}{% endblock %}
+        
+        {% block hero %}
+            {% include 'partials/hero.html.twig' %}
+        {% endblock %}
 
         {% block body %}
             {% block messages %}

@@ -3,6 +3,7 @@ import AOS from 'aos';
 import Widow from 'widow-js';
 // import lazySizes from 'lazysizes';
 import LazyLoad from 'vanilla-lazyload';
+import './modernizr-custom';
 // import $ from 'jquery';
 // import 'what-input';
 
