@@ -17,6 +17,11 @@ form:
                       label: Icon
         content:
           fields:
+            header.content:
+              type: markdown
+              validate:
+                type: textarea
+              label: Page Content
             header.media_order:
               label: Page Media (first one will be displayed next to your content). Please upload square formats (1:1) for this to display nicely (not required for hero images).
             header.hero_image:
