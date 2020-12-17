@@ -454,7 +454,7 @@
             {% endif %}
         {% endif %} #}
         {% block bottom deferred %}
-            {{ assets.js('bottom', {crossorigin: 'anonymous'})|raw }}
+            {{ assets.js('bottom', { loading: 'async defer', crossorigin: 'anonymous', }, {0:'async'})|raw }}
         {% endblock %}
         {#<script>
             var lazyLoadInstance = new LazyLoad({
