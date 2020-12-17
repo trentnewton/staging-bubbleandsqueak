@@ -4,6 +4,7 @@ import Widow from 'widow-js';
 // import lazySizes from 'lazysizes';
 import LazyLoad from 'vanilla-lazyload';
 import './modernizr-custom';
+import galite from 'ga-lite'
 // import $ from 'jquery';
 // import 'what-input';
 

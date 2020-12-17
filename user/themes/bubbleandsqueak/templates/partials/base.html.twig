@@ -42,10 +42,11 @@
             <link rel="preconnect" href="https://www.facebook.com">
             <link rel="preconnect" href="https://connect.facebook.net">
         {% endif %} #}
-        {% if page.find('/site-details').header.googleanalytics is defined and not empty %}
-            <link rel="preconnect" href="https://www.google-analytics.com">
-            <link rel="preconnect" href="https://www.googletagmanager.com">
-        {% endif %}
+        {# {% if page.find('/site-details').header.googleanalytics is defined and not empty %} #}
+            {# <link rel="preconnect" href="https://www.google-analytics.com">
+            <link rel="preconnect" href="https://www.googletagmanager.com"> #}
+            {# <link rel="preconnect" href="https://cdn.jsdelivr.net/"> #}
+        {# {% endif %} #}
     {% endblock head %}
 
     {% block stylesheets %}
@@ -82,6 +83,38 @@
                 }
             </style>
         {% endif %}
+
+        {% if hero_image %}
+            <style>
+                .no-webp .banner,
+                .banner {
+                    background-image: 
+                        -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7))),
+                        url({{ hero_image.url }});
+                    background-image:
+                        linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7)),
+                        url({{ hero_image.url }});
+                }
+                .webp .banner {
+                    background-image: 
+                        -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7))),
+                        url({{ hero_image.url|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }});
+                    background-image:
+                        linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7)),
+                        url({{ hero_image.url|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }});
+                } 
+            </style>
+        {% else %}
+            <style>
+                .banner {
+                    background-image:
+                        -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7)));
+                    background-image:
+                        linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7));
+                }
+            </style>
+        {% endif %}
+
         {% do assets.addCss('theme://dist/assets/css/app.css', { media: 'print', onload: 'this.media=\'all\'', crossorigin: 'anonymous'} )|raw %}
     {% endblock %}
 
@@ -109,10 +142,21 @@
     {# <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/ni.otf') }}" type="font/otf" crossorigin="anonymous">
     <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/ni.woff') }}" type="font/woff" crossorigin="anonymous">
     <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/ni.woff2') }}" type="font/woff2" crossorigin="anonymous"> #}
-    {% if page.find('/site-details').header.googleanalytics is defined and not empty %}<script async defer src="https://www.googletagmanager.com/gtag/js?id={{ page.find('/site-details').header.googleanalytics }}"></script>{% endif %}
-    <script>{% if page.find('/site-details').header.googleanalytics is defined and not empty %}window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '{{ page.find('/site-details').header.googleanalytics }}');{% endif %}
+    {% if page.find('/site-details').header.googleanalytics is defined and not empty %}
+        <script>
+            {# (function(e,t,n,i,s,a,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)}
+            ;a=t.createElement(i);c=t.getElementsByTagName(i)[0];a.async=true;a.src=s
+            ;c.parentNode.insertBefore(a,c)
+            })(window,document,"galite","script","https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js"); #}
+
+            galite('create', '{{ page.find('/site-details').header.googleanalytics }}', 'auto');
+            galite('send', 'pageview');
+        </script>
+    {% endif %}
+    {# {% if page.find('/site-details').header.googleanalytics is defined and not empty %}<script async defer src="https://www.googletagmanager.com/gtag/js?id={{ page.find('/site-details').header.googleanalytics }}"></script>{% endif %}
+    <script>{% if page.find('/site-details').header.googleanalytics is defined and not empty %}window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '{{ page.find('/site-details').header.googleanalytics }}');{% endif %} #}
     {# {% if page.find('/footer').header.facebookappkey is defined and not empty %}window.fbAsyncInit=function(){FB.init({appId:"{{ page.find('/footer').header.facebookappkey }}",cookie:!0,xfbml:!0,version:"v6.0"}),FB.AppEvents.logPageView()},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||((o=e.createElement(n)).id=t,o.src="https://connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");{% endif %} #}
-    </script>
+    {# </script> #}
     {% if page.header.title == 'Locations' %}
         {% if page.find('/site-details').header.googlemaps_key is defined and not empty %}
             <script defer>
