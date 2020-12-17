@@ -36,7 +36,6 @@
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.26.13",
-    "ga-lite": "^2.1.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^3.3.1",
