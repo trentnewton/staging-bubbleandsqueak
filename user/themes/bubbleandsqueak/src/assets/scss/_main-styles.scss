@@ -27,6 +27,7 @@ html {
 a {
 	@extend a;
 	transition: color $transition-time;
+	will-change: color;
 }
 
 ::selection {
@@ -98,6 +99,15 @@ button {
 		outline: none;
 	}
 
+}
+
+button,
+.button {
+	will-change: background-color;
+}
+
+.form-input {
+	will-change: box-shadow, border-bottom-color, border-left-color, border-right-color, border-top-color;
 }
 
 .icon {
