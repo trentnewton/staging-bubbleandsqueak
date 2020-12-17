@@ -10,7 +10,11 @@
                   {# {% set imgcolour = GetImageColor(page.media[feature.graphic].path())[0] %} #}
                   <div class="card-image"{#  style="background: #{{ imgcolour }}" #}>
                     {% set feature_image = page.media[feature.graphic].derivatives(1230).sizes('(max-width:26em) 100vw, 50vw') %}
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAApJREFUeNpjYAAAAAIAAeUn3vwAAAAASUVORK5CYII=" data-src="{{ feature_image.url(false) }}" data-srcset="{{ feature_image.srcset(false) }}" width="{{ page.media[feature.graphic].width }}" height="{{ page.media[feature.graphic].height}}" alt="{{ filename_ext[0]|humanize|replace({'-' : " "}) }}" class="lazy">
+                    <picture>
+                        <source data-srcset="{{ feature_image.srcset(false)|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }}" type="image/webp">
+                        <source data-srcset="{{ feature_image.srcset(false) }}" type="image/jpeg"> 
+                        <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAApJREFUeNpjYAAAAAIAAeUn3vwAAAAASUVORK5CYII=" width="{{ page.media[feature.graphic].width }}" height="{{ page.media[feature.graphic].height}}" alt="{{ filename_ext[0]|humanize|replace({'-' : " "}) }}">
+                    </picture>
                   </div>
                   <div class="card-section">
                     {% if feature.header %}
