@@ -23,7 +23,12 @@
 						</li>
 					{% endif %}
                     {% if page.find('/site-details').header.number %}
-                        <li>
+						<li itemprop="url">
+							<a href="tel:{{ page.find('/site-details').header.number|replace({' ': ''}) }}" class="small button" title="Give us a call>
+								<svg class="icon icon-call"><use xlink:href="#icon-call"></use></svg>&nbsp;Phone:&nbsp;{{ page.find('/site-details').header.number }}
+							</a>
+						</li>
+                        {# <li>
                             <div class="flex-container info">
                                 <div class="info-icon">
                                     <svg class="icon icon-call" role="img"><use xlink:href="#icon-call"></use></svg>
@@ -33,15 +38,15 @@
                                     <div itemscope itemtype="https://schema.org/LocalBusiness">
                                         <span class="hide" itemprop="name">{{ site.title|e('html') }}</span>
                                         <span class="info-text" itemprop="telephone" content="{{ page.find('/site-details').header.number }}">{{ page.find('/site-details').header.number }}</span>
-                                        {# <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                                        <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                                             <meta itemprop="url" content="{{ base_url_absolute }}{{ background_image.url }}">
                                             <meta itemprop="width" content="{{ background_image.width }}">
                                             <meta itemprop="height" content="{{ background_image.height }}">
-                                        </div> #}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </li> #}
 					{% endif %}
 				</ul>
 				<div id="form-result" role="alert"></div>
