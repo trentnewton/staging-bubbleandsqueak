@@ -6,9 +6,9 @@
 // @import 'motion-ui';
 
 // Global styles
-@include foundation-global-styles;
+// @include foundation-global-styles;
 @include foundation-forms;
-@include foundation-typography;
+// @include foundation-typography;
 
 // Grids (choose one)
 @include foundation-xy-grid-classes;
