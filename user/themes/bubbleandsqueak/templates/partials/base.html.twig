@@ -144,6 +144,11 @@
     {# <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/ni.otf') }}" type="font/otf" crossorigin="anonymous">
     <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/ni.woff') }}" type="font/woff" crossorigin="anonymous">
     <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/ni.woff2') }}" type="font/woff2" crossorigin="anonymous"> #}
+    {% set hero_image = page.header.hero_image ? page.media[page.header.hero_image] : page.media.images|first %}
+    {% if hero_image %}
+            <link rel="preload" as="image" href="{{ hero_image.url|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }}" type="image/webp" crossorigin="anonymous">
+            <link rel="preload" as="image" href="{{ hero_image.url }}" type="image/jpg" crossorigin="anonymous">
+    {% endif %}
     {% if page.find('/site-details').header.googleanalytics is defined and not empty %}
         <script>
             {# (function(e,t,n,i,s,a,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)}
