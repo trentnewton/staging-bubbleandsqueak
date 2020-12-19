@@ -122,6 +122,7 @@
         {# {% do assets.addJs('jquery', 101) %} #}
         {% do assets.addJs('theme://node_modules/intersection-observer/intersection-observer.js', { loading: 'inline', position: 'before', group:'head' } ) %}
         {% do assets.addJs('theme://node_modules/ga-lite/dist/ga-lite.min.js', { loading: 'inline', position: 'before', group:'head' } ) %}
+        {% do assets.addJs('theme://node_modules/aos/dist/aos.js', { loading: 'inline', position: 'before', group:'bottom' } ) %}
         {% do assets.addJs('theme://dist/assets/js/app.js', { loading: 'async defer', group: 'bottom' }) %}
     {% endblock %}
 
@@ -501,6 +502,17 @@
         {% block bottom deferred %}
             {{ assets.js('bottom', { loading: 'async defer', crossorigin: 'anonymous', }, {0:'async'})|raw }}
         {% endblock %}
+        <script>
+            AOS.init({
+                duration: 1000, // values from 0 to 3000, with step 50ms
+                easing: 'ease-in-out-quad', // default easing for AOS animations
+                once: true, // whether animation should happen only once - while scrolling down
+                anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+            });
+
+            window.addEventListener('load', AOS.refresh);
+        
+        </script>
         {#<script>
             var lazyLoadInstance = new LazyLoad({
                 elements_selector: ".lazy",
