@@ -42,11 +42,11 @@
             <link rel="preconnect" href="https://www.facebook.com">
             <link rel="preconnect" href="https://connect.facebook.net">
         {% endif %} #}
-        {% if page.find('/site-details').header.googleanalytics is defined and not empty %}
+        {# {% if page.find('/site-details').header.googleanalytics is defined and not empty %} #}
             {# <link rel="preconnect" href="https://www.google-analytics.com">
             <link rel="preconnect" href="https://www.googletagmanager.com"> #}
-            <link rel="preconnect" href="https://cdn.jsdelivr.net/">
-        {% endif %}
+            {# <link rel="preconnect" href="https://cdn.jsdelivr.net/"> #}
+        {# {% endif %} #}
     {% endblock head %}
 
     {% block stylesheets %}
@@ -120,7 +120,8 @@
 
     {% block javascripts %}
         {# {% do assets.addJs('jquery', 101) %} #}
-        {% do assets.addJs('theme://dist/assets/js/intersection-observer.js', { loading: 'inline', position: 'before', group:'head' } ) %}
+        {% do assets.addJs('theme://node_modules/intersection-observer/intersection-observer.js', { loading: 'inline', position: 'before', group:'head' } ) %}
+        {% do assets.addJs('theme://node_modules/ga-lite/dist/ga-lite.min.js', { loading: 'inline', position: 'before', group:'head' } ) %}
         {% do assets.addJs('theme://dist/assets/js/app.js', { loading: 'async defer', group: 'bottom' }) %}
     {% endblock %}
 
@@ -144,10 +145,10 @@
     <link rel="preload" as="font" href="{{ url('theme://dist/assets/fonts/ni.woff2') }}" type="font/woff2" crossorigin="anonymous"> #}
     {% if page.find('/site-details').header.googleanalytics is defined and not empty %}
         <script>
-            (function(e,t,n,i,s,a,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)}
+            {# (function(e,t,n,i,s,a,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)}
             ;a=t.createElement(i);c=t.getElementsByTagName(i)[0];a.async=true;a.src=s
             ;c.parentNode.insertBefore(a,c)
-            })(window,document,"galite","script","https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js");
+            })(window,document,"galite","script","https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js"); #}
 
             galite('create', '{{ page.find('/site-details').header.googleanalytics }}', 'auto');
             galite('send', 'pageview');

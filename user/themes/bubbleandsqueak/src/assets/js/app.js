@@ -4,6 +4,7 @@ import Widow from 'widow-js';
 // import lazySizes from 'lazysizes';
 import LazyLoad from 'vanilla-lazyload';
 import './modernizr-custom';
+import galite from 'ga-lite'
 // import $ from 'jquery';
 // import 'what-input';
 
@@ -144,3 +145,6 @@ window.addEventListener('load', () => {
       console.log('SW registration failed', err)
     })
 })
+
+galite('create', 'UA-XXXXXXXX-X', 'auto')
+galite('send', 'pageview')
