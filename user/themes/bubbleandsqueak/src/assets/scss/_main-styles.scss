@@ -25,7 +25,6 @@ html {
 }
 
 a {
-	@extend a;
 	transition: color $transition-time;
 	will-change: color;
 }
