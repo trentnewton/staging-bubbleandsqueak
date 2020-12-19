@@ -5,8 +5,8 @@
             {% if page.header.location.streetaddress %}
                 <div class="cell medium-6{% if page.header.map_align == 'right' %} small-order-2 medium-order-1{% else %} small-order-2 medium-order-2{% endif %} location {% if page.header.map_align == 'right' %}left{% else %}right{% endif %}">
                     {% if page.header.link_to_page.text %}
-                        <a data-aos="fade-{% if page.header.map_align == 'right' %}left{% else %}right{% endif %}" class="special header-link {% if page.header.map_align == 'right' %}left{% else %}right{% endif %}" href="{{ base_url }}{{ page.header.link_to_page.link|first }}">
-                            <h2 class="major bubbles" itemprop="headline">{{ page.header.title }}</h2>
+                        <a class="special header-link {% if page.header.map_align == 'right' %}left{% else %}right{% endif %}" href="{{ base_url }}{{ page.header.link_to_page.link|first }}">
+                            <h2 data-aos="fade-{% if page.header.map_align == 'right' %}left{% else %}right{% endif %}" class="major bubbles" itemprop="headline">{{ page.header.title }}</h2>
                         </a>
                     {% else %}
                         <h2 data-aos="fade-{% if page.header.map_align == 'right' %}left{% else %}right{% endif %}" class="major bubbles" itemprop="headline">{{ page.header.title }}</h2>

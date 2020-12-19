@@ -442,13 +442,16 @@ a.special {
 
 	a.special.header-link {
 		position: relative;
+		transition: color $transition-time;
+		color: $anchor-color-hover;
 
 		&:hover,
 		&:focus,
 		&:active {
+			color: $header-color;
 
 			h2 {
-				color: $header-color;
+				color: inherit
 			}
 			
 			&.left {
@@ -472,9 +475,7 @@ a.special {
 		}
 
 		h2 {
-			color: $anchor-color-hover;
 			padding-bottom: rem-calc(12);
-			transition: color $transition-time;
 		}
 
 		&::before {
