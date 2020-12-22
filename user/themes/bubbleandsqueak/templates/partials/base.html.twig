@@ -53,6 +53,7 @@
         {# <link rel="stylesheet" href="https://use.typekit.net/zkx4ilo.css"> #}
         {% do assets.addCss('theme://dist/assets/css/critical.css', { loading: 'inline', position: 'before', group:'head'} ) %}
         {% set hero_image = page.header.hero_image ? page.media[page.header.hero_image] : page.media.images|first %}
+        {% set hero_image = hero_image.cropResize(1920, 1080) %}
         {% if hero_image %}
             <style>
                 .no-webp .banner,
