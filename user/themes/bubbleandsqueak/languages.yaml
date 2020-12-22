@@ -21,6 +21,10 @@ en:
         HEADLINE: Archives
       SYNDICATE:
         HEADLINE: Syndicate
+  PLUGIN_ERROR:
+    ERROR: "Error"
+    ERROR_MESSAGE: "The page you are looking for was moved, removed, renamed, or might have never existed. Probably not the place you were looking for."
+    ROUTE_404: "404 Route"
 
 de:
   THEME_BUBBLEANDSQUEAK:
