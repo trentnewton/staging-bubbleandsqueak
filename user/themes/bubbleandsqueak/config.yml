@@ -26,3 +26,4 @@ PATHS:
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "src/assets/js/app.js"
+    - "node_modules/intersection-observer/intersection-observer.js"
