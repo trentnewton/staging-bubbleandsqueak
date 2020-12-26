@@ -56,8 +56,8 @@
         {% set hero_image = hero_image.cropResize(1920, 1080) %}
         {% if hero_image %}
             <style>
-                .no-webp .banner,
-                .banner {
+                .no-webp .banner[data-was-processed="true"],
+                .banner[data-was-processed="true"] {
                     background-image: 
                         -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7))),
                         url({{ hero_image.url }});
@@ -65,7 +65,7 @@
                         linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7)),
                         url({{ hero_image.url }});
                 }
-                .webp .banner {
+                .webp .banner[data-was-processed="true"] {
                     background-image: 
                         -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7))),
                         url({{ hero_image.url|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }});
@@ -84,6 +84,9 @@
                 }
             </style>
         {% endif %}
+        {# {% if page.find('/footer').header.background_image %} #}
+            {% include 'partials/footer-bg.html.twig' with {'page': page.find('/footer', true)} %}
+        {# {% endif %} #}
         {% do assets.addCss('theme://dist/assets/css/app.css', { media: 'print', onload: 'this.media=\'all\'', crossorigin: 'anonymous'} )|raw %}
     {% endblock %}
 
