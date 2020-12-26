@@ -94,7 +94,7 @@
         {# {% do assets.addJs('jquery', 101) %} #}
         {% do assets.addJs('theme://node_modules/intersection-observer/intersection-observer.js', { loading: 'inline', position: 'before', group:'head' } ) %}
         {% do assets.addJs('theme://node_modules/ga-lite/dist/ga-lite.min.js', { loading: 'inline', position: 'before', group:'head' } ) %}
-        {% do assets.addJs('theme://node_modules/aos/dist/aos.js', { loading: 'inline', position: 'before', group:'bottom' } ) %}
+        {# {% do assets.addJs('theme://node_modules/aos/dist/aos.js', { loading: 'inline', position: 'before', group:'bottom' } ) %} #}
         {% do assets.addJs('theme://dist/assets/js/app.js', { loading: 'async defer', group: 'bottom' }) %}
     {% endblock %}
 
@@ -479,7 +479,7 @@
         {% block bottom deferred %}
             {{ assets.js('bottom', { loading: 'async defer', crossorigin: 'anonymous', }, {0:'async'})|raw }}
         {% endblock %}
-        <script>
+        {# <script>
             AOS.init({
                 duration: 1000, // values from 0 to 3000, with step 50ms
                 easing: 'ease-in-out-quad', // default easing for AOS animations
@@ -489,7 +489,7 @@
 
             window.addEventListener('load', AOS.refresh);
         
-        </script>
+        </script> #}
         {#<script>
             var lazyLoadInstance = new LazyLoad({
                 elements_selector: ".lazy",
