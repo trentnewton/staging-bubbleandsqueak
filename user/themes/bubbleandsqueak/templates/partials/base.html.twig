@@ -56,8 +56,8 @@
         {% set hero_image = hero_image.cropResize(1920, 1080) %}
         {% if hero_image %}
             <style>
-                .no-webp .banner[data-was-processed="true"],
-                .banner[data-was-processed="true"] {
+                .banner,
+                .no-webp .banner[data-was-processed="true"] {
                     background-image: 
                         -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7))),
                         url({{ hero_image.url }});
