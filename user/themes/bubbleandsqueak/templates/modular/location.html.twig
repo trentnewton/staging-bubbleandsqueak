@@ -19,7 +19,7 @@
                                     <svg class="icon icon-apartment-building" role="img"><use xlink:href="#icon-apartment-building"></use></svg>
                                 </div>
                                 <div>
-                                    <span class="info-title">Address</span><br>
+                                    <span class="info-title">{{ 'THEME_BUBBLEANDSQUEAK.LOCATION.ADDRESS'|t }}</span><br>
                                     <div itemscope itemtype="https://schema.org/LocalBusiness">
                                         {% if page.header.location.name %}
                                                 <span class="info-text" itemprop="name">{{ page.header.location.name }},</span><br>
@@ -55,12 +55,12 @@
                                     <svg class="icon icon-clock" role="img"><use xlink:href="#icon-clock"></use></svg>
                                 </div>
                                 <div>
-                                    <span class="info-title">Opening Hours</span><br>
+                                    <span class="info-title">{{ 'THEME_BUBBLEANDSQUEAK.LOCATION.OPENING_HOURS'|t }}</span><br>
                                     <div itemscope itemtype="https://schema.org/LocalBusiness">
                                         <span class="hide" itemprop="name">{{ site.title|e('html') }}</span>
                                         <span class="info-text" itemprop="description">{{ page.header.opening_hours.description }}</span><br>
                                         <span class="info-text" itemprop="openingHours" content="{{ page.header.opening_hours.daystart|date("D")|slice(0, 2) }}-{{ page.header.opening_hours.dayend|date("D")|slice(0, 2) }}{% if page.header.opening_hours.allday.allday %}{% else %} {{ page.header.opening_hours.timestart|date('H:i') }}-{{ page.header.opening_hours.timeend|date('H:i') }}{% endif %}">
-                                            {{ page.header.opening_hours.daystart|date("l") }}&nbsp;&ndash;&nbsp;{{ page.header.opening_hours.dayend|date("l") }},&nbsp;{% if page.header.opening_hours.allday.allday %}All Day{% else %}{{ page.header.opening_hours.timestart|date('h:ia') }}&nbsp;&ndash;&nbsp;{{ page.header.opening_hours.timeend|date('h:ia') }}{% endif %}
+                                            {{ page.header.opening_hours.daystart|date("l") }}&nbsp;&ndash;&nbsp;{{ page.header.opening_hours.dayend|date("l") }},&nbsp;{% if page.header.opening_hours.allday.allday %}{{ 'THEME_BUBBLEANDSQUEAK.LOCATION.ALL_DAY'|t }}{% else %}{{ page.header.opening_hours.timestart|date('h:ia') }}&nbsp;&ndash;&nbsp;{{ page.header.opening_hours.timeend|date('h:ia') }}{% endif %}
                                         </span>
                                         {# <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                                             <meta itemprop="url" content="{{ base_url_absolute }}{{ background_image.url }}">
@@ -77,7 +77,7 @@
                                     <svg class="icon icon-call" role="img"><use xlink:href="#icon-call"></use></svg>
                                 </div>
                                 <div>
-                                    <span class="info-title">Call</span><br>
+                                    <span class="info-title">{{ 'THEME_BUBBLEANDSQUEAK.LOCATION.CALL'|t }}</span><br>
                                     <div itemscope itemtype="https://schema.org/LocalBusiness">
                                         <span class="hide" itemprop="name">{{ site.title|e('html') }}</span>
                                         <span class="info-text" itemprop="telephone" content="{{ page.header.location_number }}">{{ page.header.location_number }}</span>
@@ -97,7 +97,7 @@
                                 </div>
                                 <div>
                                     <span class="info-title">Facebook</span><br>
-                                    <a href="{{ page.header.location_facebook.url }}" title="Visit the {{ page.header.title }} Facebook page" target="_blank" rel="noreferrer">Visit the {{ page.header.title }} Facebook page</a>
+                                    <a href="{{ page.header.location_facebook.url }}" title="{{ 'THEME_BUBBLEANDSQUEAK.LOCATION.VISIT_THE'|t }} {{ page.header.title }} Facebook {{ 'THEME_BUBBLEANDSQUEAK.LOCATION.PAGE'|t }}" target="_blank" rel="noreferrer">{{ 'THEME_BUBBLEANDSQUEAK.LOCATION.VISIT_THE'|t }} {{ page.header.title }} Facebook {{ 'THEME_BUBBLEANDSQUEAK.LOCATION.PAGE'|t }}</a>
                                 </div>
                             </div>
                         {% endif %}
@@ -178,7 +178,6 @@
                 };
 
             };
-
 
         </script>
     {% endif %}

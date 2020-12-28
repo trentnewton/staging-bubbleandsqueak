@@ -1,10 +1,10 @@
 {% import 'macros/macros.html.twig' as macros %}
 
-<nav role="navigation" aria-label="Main Navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+<nav role="navigation" aria-label="{{ 'THEME_BUBBLEANDSQUEAK.NAVIGATION.MAIN_NAVIGATION_ARIA_LABEL'|t }}" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <div class="top-bar stacked-for-medium">
         <div class="top-bar-left">
             <div class="logo">
-                <a title="Visit our Home Page" href="{{ home_url }}">
+                <a title="{{ 'THEME_BUBBLEANDSQUEAK.NAVIGATION.LOGO_LINK_TITLE'|t }}" href="{{ home_url }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="186px" height="65px" viewBox="0 0 262.75 91.82" role="img" aria-labelledby="logo-title">
                         <title id="logo-title">{{ site.title|e('html') }}</title>
                         <defs>
@@ -64,8 +64,8 @@
                 </div> #}
                 {% if page.find('/site-details').header.number %}
                     <div class="flex-container">
-                        <a href="tel:{{ page.find('/site-details').header.number|replace({' ': ''}) }}" class="small button">
-                            <svg class="icon icon-call"><use xlink:href="#icon-call"></use></svg>&nbsp;Phone:&nbsp;{{ page.find('/site-details').header.number }}
+                        <a href="tel:{{ page.find('/site-details').header.number|replace({' ': ''}) }}" class="small button" title="{{ 'THEME_BUBBLEANDSQUEAK.NAVIGATION.PHONE_NUMBER_LINK_TITLE'|t }}">
+                            <svg class="icon icon-call"><use xlink:href="#icon-call"></use></svg>&nbsp;{{ 'THEME_BUBBLEANDSQUEAK.NAVIGATION.PHONE_NUMBER_LINK_TEXT'|t }}:&nbsp;{{ page.find('/site-details').header.number }}
                         </a>
                     </div>
                 {% endif %}

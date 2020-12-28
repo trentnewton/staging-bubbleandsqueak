@@ -8,23 +8,23 @@
 				<ul class="menu social">
 					{% if page.find('/site-details').header.facebook.url %}
 						<li itemprop="url">
-							<a href="{{ page.find('/site-details').header.facebook.url }}" class="small button" title="Visit us on Facebook" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.facebook.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.facebook.icon }}"></use></svg>&nbsp;Facebook</a>
+							<a href="{{ page.find('/site-details').header.facebook.url }}" class="small button" title="{{ 'THEME_BUBBLEANDSQUEAK.FOOTER.FACEBOOK_LINK_TITLE'|t }}" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.facebook.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.facebook.icon }}"></use></svg>&nbsp;Facebook</a>
 						</li>
 					{% endif %}
 					{% if page.find('/site-details').header.instagram.url %}
 						<li itemprop="url">
-							<a href="{{ page.find('/site-details').header.instagram.url }}" class="small button" title="Follow us on Instagram" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.instagram.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.instagram.icon }}"></use></svg>&nbsp;Instagram</a>
+							<a href="{{ page.find('/site-details').header.instagram.url }}" class="small button" title="{{ 'THEME_BUBBLEANDSQUEAK.FOOTER.INSTAGRAM_LINK_TITLE'|t }}" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.instagram.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.instagram.icon }}"></use></svg>&nbsp;Instagram</a>
 						</li>
 					{% endif %}
 					{% if page.find('/site-details').header.twitter.name %}
 						<li itemprop="url">
-							<a href="https://twitter.com/{{ page.find('/site-details').header.twitter.name }}" class="small button" title="Follow us on Twitter" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.twitter.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.twitter.icon }}"></use></svg>&nbsp;Twitter</a>
+							<a href="https://twitter.com/{{ page.find('/site-details').header.twitter.name }}" class="small button" title="{{ 'THEME_BUBBLEANDSQUEAK.FOOTER.INSTAGRAM_LINK_TITLE'|t }}" target="_blank" rel="noreferrer" itemprop="name"><svg class="icon icon-{{ page.find('/site-details').header.twitter.icon }}" role="img"><use xlink:href="#icon-{{ page.find('/site-details').header.twitter.icon }}"></use></svg>&nbsp;Twitter</a>
 						</li>
 					{% endif %}
                     {% if page.find('/site-details').header.number %}
 						<li itemprop="url">
-							<a href="tel:{{ page.find('/site-details').header.number|replace({' ': ''}) }}" class="small button" title="Give us a call">
-								<svg class="icon icon-call"><use xlink:href="#icon-call"></use></svg>&nbsp;Phone:&nbsp;{{ page.find('/site-details').header.number }}
+							<a href="tel:{{ page.find('/site-details').header.number|replace({' ': ''}) }}" class="small button" title="{{ 'THEME_BUBBLEANDSQUEAK.FOOTER.PHONE_NUMBER_LINK_TITLE'|t }}">
+								<svg class="icon icon-call"><use xlink:href="#icon-call"></use></svg>&nbsp;{{ 'THEME_BUBBLEANDSQUEAK.FOOTER.PHONE_NUMBER_LINK_TEXT'|t }}:&nbsp;{{ page.find('/site-details').header.number }}
 							</a>
 						</li>
                         {# <li>
@@ -135,15 +135,15 @@
 			</div> #}
 		{# </div> #}
 		<div class="grid-x copyright align-center-middle">
-			<nav class="cell medium-12 large-10 copyright-text" aria-label="Bottom Navigation">
+			<nav class="cell medium-12 large-10 copyright-text" aria-label="{{ 'THEME_BUBBLEANDSQUEAK.FOOTER.BOTTOM_NAVIGATION_ARIA_LABEL'|t }}">
 				<ul role="menu" class="menu">
 					{% set currentYear = now|date("Y") %}
 					<li class="menu-text" role="none">&copy;{{ currentYear }} {{ site.title|e('html') }}.</li>
 					{% if page.find('/site-details').header.privacy_policy_page %}
-						<li class="menu-text" role="menuitem" itemprop="url"><a href="{{ base_url }}{{ page.find('/site-details').header.privacy_policy_page }}" itemprop="name">Privacy</a></li>
+						<li class="menu-text" role="menuitem" itemprop="url"><a href="{{ base_url }}{{ page.find('/site-details').header.privacy_policy_page }}" itemprop="name">{{ 'THEME_BUBBLEANDSQUEAK.FOOTER.PRIVACY_PAGE_LINK_TEXT'|t }}</a></li>
 					{% endif %}
                     {% if page.find('/site-details').header.terms_and_conditions_page %}
-                        <li class="menu-text" role="menuitem" itemprop="url"><a href="{{ base_url }}{{ page.find('/site-details').header.terms_and_conditions_page }}" itemprop="name">Terms</a></li>
+                        <li class="menu-text" role="menuitem" itemprop="url"><a href="{{ base_url }}{{ page.find('/site-details').header.terms_and_conditions_page }}" itemprop="name">{{ 'THEME_BUBBLEANDSQUEAK.FOOTER.TERMS_PAGE_LINK_TEXT'|t }}</a></li>
                     {% endif %}
 				</ul>
 			</nav>
