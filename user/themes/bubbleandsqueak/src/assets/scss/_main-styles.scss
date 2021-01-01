@@ -105,7 +105,9 @@ button,
 	will-change: background-color;
 }
 
-.form-input {
+[type=email],
+[type=text],
+textarea {
 	will-change: box-shadow, border-bottom-color, border-left-color, border-right-color, border-top-color;
 }
 

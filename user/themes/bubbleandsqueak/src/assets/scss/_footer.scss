@@ -24,7 +24,7 @@
 
 	a {
 		color: $white;
-		will-change: color;
+		// will-change: color;
 
 		&:focus,
 		&:hover {
@@ -59,7 +59,7 @@
 		font-weight: $global-weight-bold;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		will-change: background-color;
+		// will-change: background-color;
 
 		&:hover,
 		&:focus {
@@ -91,7 +91,7 @@
 			padding: 0;
 			text-decoration: underline;
 			position: relative;
-			will-change: color;
+			// will-change: color;
 			
 
 			&:hover {
