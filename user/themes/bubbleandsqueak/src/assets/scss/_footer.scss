@@ -1,6 +1,6 @@
 .footer {
-	margin-top: -6.5rem;
-	padding-top: 6.5rem;
+	margin-top: rem-calc(-104px);
+	padding-top: rem-calc(104px);
 	background-color: $secondary-color;
 	//background-image: linear-gradient(to top, rgba($secondary-color, 0.7), rgba($secondary-color-darken-10, 0.7)), url('#{$asset-path}/img/footer-bg.jpg');
 	background-size: auto, cover;
