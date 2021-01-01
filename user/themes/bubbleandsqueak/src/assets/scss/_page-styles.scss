@@ -134,25 +134,33 @@ a.special {
 	}
 
 	&:nth-of-type(1) {
-		background-color: #005666;
+		background-color: $secondary-color-darken-20;
 		margin-top: 0;
 		// margin-bottom: 6.5rem;
 
 		&:before,
 		&:after {
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23005666%3B' /%3E%3C/svg%3E");
-			box-shadow: inset 0 -1px 0 0 #005666, 0 1px 0 0 #005666;
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:#{$secondary-color-darken-20-rgb}' /%3E%3C/svg%3E");
+			box-shadow: inset 0 -1px 0 0 $secondary-color-darken-20, 0 1px 0 0 $secondary-color-darken-20;
+		}
+		
+		.features .card {
+			background: $secondary-color-darken-10;
 		}
 
 	}
 
 	&:nth-of-type(2) {
-		background-color: #008199;
+		background-color: $secondary-color-darken-10;
 
 		&:before,
 		&:after {
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23008199%3B' /%3E%3C/svg%3E");
-			box-shadow: inset 0 -1px 0 0 #008199, 0 1px 0 0 #008199;
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:#{$secondary-color-darken-10-rgb}' /%3E%3C/svg%3E");
+			box-shadow: inset 0 -1px 0 0 $secondary-color-darken-10, 0 1px 0 0 $secondary-color-darken-10;
+		}
+
+		.features .card {
+			background: $secondary-color;
 		}
 
 	}
@@ -163,18 +171,26 @@ a.special {
 		&:before,
 		&:after {
 			box-shadow: inset 0 -1px 0 0 $secondary-color, 0 1px 0 0 $secondary-color;
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' fill='#{$secondary-rgb}' /%3E%3C/svg%3E");
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:#{$secondary-rgb}' /%3E%3C/svg%3E");
+		}
+
+		.features .card {
+			background: $secondary-color-lighten-10;
 		}
 
 	}
 
 	&:nth-of-type(4) {
-		background-color: #40c1d9;
+		background-color: $secondary-color-lighten-10;
 
 		&:before,
 		&:after {
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%2340c1d9%3B' /%3E%3C/svg%3E");
-			box-shadow: inset 0 -1px 0 0 #40c1d9, 0 1px 0 0 #40c1d9;
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:#{$secondary-color-lighten-10-rgb}' /%3E%3C/svg%3E");
+			box-shadow: inset 0 -1px 0 0 $secondary-color-lighten-10, 0 1px 0 0 $secondary-color-lighten-10;
+		}
+
+		.features .card {
+			background: $secondary-color;
 		}
 
 	}
@@ -232,7 +248,7 @@ a.special {
 			img {
 				border-radius: 100%;
 				box-shadow: 0 0 10px rgba($black, 0.23);
-				background-color: #bfeaf2;
+				background-color: $secondary-color-lighten-30;
 	
 				@include breakpoint(small down) {
 					max-width: 50%;
@@ -293,7 +309,7 @@ a.special {
 		// 	width: 100%;
 		// 	border-radius: 100%;
 		// 	z-index: 0;
-		// 	background-color: #bfeaf2;
+		// 	background-color: $secondary-color-lighten-30;
 
 		// 	@include breakpoint(small down) {
 		// 		width: 50%;
@@ -372,13 +388,17 @@ a.special {
 		}
 
 		&:nth-of-type(1) {
-			background-color: #40c1d9;
+			background-color: $secondary-color-lighten-10;
 			margin: 0;
 
 			&:before,
 			&:after {
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%2340c1d9%3B' /%3E%3C/svg%3E");
-				box-shadow: inset 0 -1px 0 0 #40c1d9, 0 1px 0 0 #40c1d9;
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:#{$secondary-color-lighten-10-rgb}' /%3E%3C/svg%3E");
+				box-shadow: inset 0 -1px 0 0 $secondary-color-lighten-10, 0 1px 0 0 $secondary-color-lighten-10;
+			}
+
+			.features .card {
+				background: $secondary-color-lighten-20;
 			}
 
 		}
@@ -389,33 +409,41 @@ a.special {
 			&:before,
 			&:after {
 				box-shadow: inset 0 -1px 0 0 $secondary-color, 0 1px 0 0 $secondary-color;
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' fill='#{$secondary-rgb}' /%3E%3C/svg%3E");
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:#{$secondary-rgb}' /%3E%3C/svg%3E");
+			}
+
+			.features .card {
+				background: $secondary-color-lighten-10;
 			}
 
 		}
 
 		&:nth-of-type(3) {
-			background-color: #008199;
+			background-color: $secondary-color-darken-10;
 
 			&:before,
 			&:after {
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23008199%3B' /%3E%3C/svg%3E");
-				box-shadow: inset 0 -1px 0 0 #008199, 0 1px 0 0 #008199;
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:#{$secondary-color-darken-10-rgb}' /%3E%3C/svg%3E");
+				box-shadow: inset 0 -1px 0 0 $secondary-color-darken-10, 0 1px 0 0 $secondary-color-darken-10;
+			}
+
+			.features .card {
+				background: $secondary-color;;
 			}
 
 		}
 
 		&:nth-of-type(4) {
-			background-color: #005666;
+			background-color: $secondary-color-darken-20;
 
 			&:before,
 			&:after {
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23005666%3B' /%3E%3C/svg%3E");
-				box-shadow: inset 0 -1px 0 0 #005666, 0 1px 0 0 #005666;
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:#{$secondary-color-darken-20-rgb}' /%3E%3C/svg%3E");
+				box-shadow: inset 0 -1px 0 0 $secondary-color-darken-20, 0 1px 0 0 $secondary-color-darken-20;
 			}
 
 			.features .card {
-				background: #006d81;
+				background: $secondary-color-darken-15;
 			}
 
 		}
@@ -533,7 +561,7 @@ a.special {
 		box-shadow: 0 0 10px rgba($black, 0.23);
 
 		.card-image {
-			background-color: #bfeaf2;
+			background-color: $secondary-color-lighten-30;
 		}
 
 		img {
@@ -628,7 +656,7 @@ a.special {
 	}
 
 	.icon {
-		color: #bfeaf2;
+		color: $secondary-color-lighten-30;
 
 		.icon {
 			width: rem-calc(19px);
@@ -678,7 +706,7 @@ a.special {
 		font-weight: bold;
 		margin: 0 0 1em 0;
 		padding: 0 0 0.5em;
-		color: #bfeaf2;
+		color: $secondary-color-lighten-30;
 	}
 
 	.pricing-price {
@@ -704,7 +732,7 @@ a.special {
 
 	.pricing-period {
 		font-size: 0.8rem;
-		color: #bfeaf2;
+		color: $secondary-color-lighten-30;
 		display: block;
 		position: relative;
 		top: rem-calc(-10px);
@@ -732,7 +760,7 @@ a.special {
 	.bubbles .particle {
 		opacity: 0;
 		position: absolute;
-		background-color: rgba(#bfeaf2, 0.5);
+		background-color: rgba($secondary-color-lighten-30, 0.5);
 		border-radius: 100%;
 	}
 

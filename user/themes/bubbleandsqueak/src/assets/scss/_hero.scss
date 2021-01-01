@@ -1,7 +1,7 @@
 .banner {
 	padding: rem-calc(160 0);
 	background-color: $secondary-color;
-	//background-image: linear-gradient(to top, rgba($secondary-color, 0.7), rgba(#008199, 0.7)), url('#{$asset-path}/img/main-bg.jpg');
+	//background-image: linear-gradient(to top, rgba($secondary-color, 0.7), rgba($secondary-color-darken-10, 0.7)), url('#{$asset-path}/img/main-bg.jpg');
 	background-size: auto, cover;
 	background-attachment: fixed, fixed;
 	background-position: center, center;
@@ -14,7 +14,7 @@
 		height: 100%;
 		left: 0;
 		top: 0;
-		background-image: linear-gradient(to top, rgba($secondary-color, 1), rgba(#008199, 0.7))
+		background-image: linear-gradient(to top, rgba($secondary-color, 1), rgba($secondary-color-darken-10, 0.7))
 	}
 
 	@include breakpoint (medium down) {
