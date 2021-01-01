@@ -23,8 +23,8 @@ en:
         HEADLINE: Syndicate
     FOOTER:
       FACEBOOK_LINK_TITLE: Visit us on Facebook
-      INSTAGRAM_TITLE: Follow us on Instagram
-      FOOTER_TITLE: Follow us on Twitter
+      INSTAGRAM_LINK_TITLE: Follow us on Instagram
+      TWITTER_LINK_TITLE: Follow us on Twitter
       PHONE_NUMBER_LINK_TITLE: Give us a call
       PHONE_NUMBER_LINK_TEXT: Phone
       BOTTOM_NAVIGATION_ARIA_LABEL: Bottom Navigation
