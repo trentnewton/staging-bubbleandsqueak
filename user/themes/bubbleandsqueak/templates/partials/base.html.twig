@@ -77,23 +77,23 @@
             <style>
                 .banner,
                 .no-webp .banner[data-was-processed="true"] {
-                    background-image: 
+                    {# background-image: 
                         -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7))),
-                        url({{ hero_image.url }});
+                        url({{ hero_image.url }}); #}
                     background-image:
-                        linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7)),
+                        {# linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7)), #}
                         url({{ hero_image.url }});
                 }
                 .webp .banner[data-was-processed="true"] {
-                    background-image: 
+                    {# background-image: 
                         -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7))),
-                        url({{ hero_image.url|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }});
+                        url({{ hero_image.url|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }}); #}
                     background-image:
-                        linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7)),
+                        {# linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7)), #}
                         url({{ hero_image.url|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }});
                 }
             </style>
-        {% else %}
+        {# {% else %}
             <style>
                 .banner {
                     background-image:
@@ -101,7 +101,7 @@
                     background-image:
                         linear-gradient(to top, rgba(0, 172, 204, 1), rgba(0, 129, 153, .7));
                 }
-            </style>
+            </style> #}
         {% endif %}
         {# {% if page.find('/footer').header.background_image %} #}
             {% include 'partials/footer-bg.html.twig' with {'page': page.find('/footer', true)} %}

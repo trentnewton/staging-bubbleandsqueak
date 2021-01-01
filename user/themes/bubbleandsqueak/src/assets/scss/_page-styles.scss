@@ -38,6 +38,7 @@ a.special {
 	text-align: left;
 	margin: 6.5rem 0;
 	position: relative;
+	z-index: 1;
 
 	@include breakpoint(medium down) {
 		margin: 2.5rem 0;
