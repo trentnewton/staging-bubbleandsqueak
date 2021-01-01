@@ -36,9 +36,9 @@
 }
 
 .no-webp .error {
-	background-image: linear-gradient(to top, rgba($secondary-color, 0.7), rgba(#008199, 0.7)), url('#{$full-path}/img/error-bg.jpg');
+	background-image: url('#{$full-path}/img/error-bg.jpg');
 }
 
 .webp .error {
-	background-image: linear-gradient(to top, rgba($secondary-color, 0.7), rgba(#008199, 0.7)), url('#{$full-path}/img/error-bg.jpg.webp');
+	background-image: url('#{$full-path}/img/error-bg.jpg.webp');
 }
