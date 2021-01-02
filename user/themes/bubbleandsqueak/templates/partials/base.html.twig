@@ -3,7 +3,7 @@
 {% set compress = theme_var('production-mode') ? '.min.css' : '.css' %}
 {% use 'blocks/base.html.twig' %}
 <!DOCTYPE html>
-<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}" dir="ltr" itemscope itemtype="http://schema.org/WebSite">
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}" dir="ltr" itemscope itemtype="http://schema.org/WebSite" class="no-js">
     <head>
     {% block head deferred %}
         <meta charset="utf-8" />
@@ -75,7 +75,7 @@
         {% set hero_image = hero_image.cropResize(1920, 1080) %}
         {% if hero_image %}
             <style>
-                .banner,
+                .no-js .banner,
                 .no-webp .banner[data-was-processed="true"] {
                     {# background-image: 
                         -webkit-gradient(linear, left bottom, left top, from(rgba(0, 172, 204, 5)), to(rgba(0, 129, 153, .7))),
