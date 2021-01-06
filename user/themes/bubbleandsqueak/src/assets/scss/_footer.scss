@@ -158,3 +158,11 @@
 	background-color: scale-color(get-color(alert), $lightness: 85%);
 	color: get-color(alert);
 }
+
+::-webkit-input-placeholder {
+    color: $input-placeholder-color;
+}
+
+::-ms-input-placeholder {
+	color: $input-placeholder-color;
+}
