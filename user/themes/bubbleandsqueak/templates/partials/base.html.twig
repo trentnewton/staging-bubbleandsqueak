@@ -410,7 +410,7 @@
     {# {% include 'partials/google-analytics.html.twig' with {'page': page.find('/footer', true)} %} #}
     {# {% include 'partials/facebook-sdk.html.twig' with {'page': page.find('/footer', true)} %} #}
     </head>
-    <body id="top" class="{{ page.template }} {{ page.title|hyphenize }}{% if page.home(true) %} home-page{% endif %} fonts-not-loaded" itemscope itemtype="http://schema.org/WebPage">
+    <body id="top" class="{{ page.template }} {{ page.title|hyphenize }}{% if page.home(true) %} home-page{% endif %}" itemscope itemtype="http://schema.org/WebPage">
         <noscript>Please enable Javascript to use this site!</noscript>
         <a id="skip-nav" tabindex="0" class="show-on-focus" href="#maincontent">Skip to main content</a>
         {% block notice %}
