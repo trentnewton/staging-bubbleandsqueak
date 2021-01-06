@@ -103,9 +103,7 @@
                 }
             </style> #}
         {% endif %}
-        {# {% if page.find('/footer').header.background_image %} #}
-            {% include 'partials/footer-bg.html.twig' with {'page': page.find('/footer', true)} %}
-        {# {% endif %} #}
+        {% include 'partials/footer-bg.html.twig' with {'page': page.find('/footer', true)} %}
         {% do assets.addCss('theme://dist/assets/css/app.css', { media: 'print', onload: 'this.media=\'all\'', crossorigin: 'anonymous'} )|raw %}
     {% endblock %}
 
