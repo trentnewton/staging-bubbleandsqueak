@@ -1,8 +1,7 @@
-.banner {
-	padding: rem-calc(160 0);
+.banner,
+.footer {
 	background-color: $secondary-color;
-	//background-image: linear-gradient(to top, rgba($secondary-color, 0.7), rgba($secondary-color-darken-10, 0.7)), url('#{$asset-path}/img/main-bg.jpg');
-	background-size: auto, cover;
+	background-size: cover;
 	background-attachment: fixed, fixed;
 	background-position: center, center;
 	position: relative;
@@ -14,6 +13,20 @@
 		height: 100%;
 		left: 0;
 		top: 0;
+	}
+
+}
+
+.banner {
+	padding: rem-calc(160 0);
+	background-color: $secondary-color;
+	//background-image: linear-gradient(to top, rgba($secondary-color, 0.7), rgba($secondary-color-darken-10, 0.7)), url('#{$asset-path}/img/main-bg.jpg');
+	background-size: cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+	position: relative;
+
+	&:before {
 		background-image: linear-gradient(to top, rgba($secondary-color, 1), rgba($secondary-color-darken-10, 0.7))
 	}
 
