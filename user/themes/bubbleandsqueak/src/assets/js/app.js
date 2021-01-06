@@ -144,6 +144,3 @@ window.addEventListener('load', () => {
       console.log('SW registration failed', err)
     })
 })
-
-galite('create', 'UA-XXXXXXXX-X', 'auto')
-galite('send', 'pageview')
