@@ -477,24 +477,6 @@
         {% block bottom deferred %}
             {{ assets.js('bottom', { loading: 'async defer', crossorigin: 'anonymous', }, {0:'async'})|raw }}
         {% endblock %}
-        {# <script>
-            AOS.init({
-                duration: 1000, // values from 0 to 3000, with step 50ms
-                easing: 'ease-in-out-quad', // default easing for AOS animations
-                once: true, // whether animation should happen only once - while scrolling down
-                anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-            });
-
-            window.addEventListener('load', AOS.refresh);
-        
-        </script> #}
-        {#<script>
-            var lazyLoadInstance = new LazyLoad({
-                elements_selector: ".lazy",
-                load_delay: 300
-            });
-            lazyLoadInstance.update();
-        </script>#}
         {#<script>
             function lCss(u, m) {
                 var l = document.createElement('link');
@@ -512,17 +494,6 @@
             } else {
                 window.onload=dCss
             }
-        </script>#}
-        {#<script type="text/javascript">
-
-            var giftofspeed = document.createElement('link');
-            giftofspeed.rel = 'stylesheet';
-            giftofspeed.href = '/dist/assets/css/app.css';
-            giftofspeed.type = 'text/css';
-            var godefer = document.getElementsByTagName('link')[0];
-            godefer.parentNode.insertBefore(giftofspeed, godefer);#}
-
-            {#var s=document.createElement("link");s.rel="stylesheet";s.href="{{ theme_url }}/dist/assets/css/app.css";s.type="text/css";var t=document.getElementsByTagName("link")[0];t.parentNode.insertBefore(s,t);
         </script>#}
         {% include 'partials/svg.html.twig' ignore missing %}
     </body>
