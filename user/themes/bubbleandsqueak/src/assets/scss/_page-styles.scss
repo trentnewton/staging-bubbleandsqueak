@@ -443,7 +443,7 @@ textarea {
 
 		&:nth-of-type(1) {
 			background-color: $secondary-color-lighten-10;
-			margin: 0;
+			// margin: 0;
 
 			&:before,
 			&:after {
@@ -816,24 +816,6 @@ textarea {
 		position: absolute;
 		background-color: rgba($secondary-color-lighten-30, 0.5);
 		border-radius: 100%;
-	}
-
-}
-
-@keyframes bubbles {
-
-	0% {
-		opacity: 0;
-	}
-
-	20% {
-		opacity: 1;
-		transform: translate3d(0, -20%, 0);
-	}
-
-	100% {
-		opacity: 0;
-		transform: translate3d(0, -1000%, 0);
 	}
 
 }
