@@ -29,7 +29,7 @@
                     <picture>
                         <source data-srcset="{{ text_image.srcset(false)|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }}" type="image/webp">
                         <source data-srcset="{{ text_image.srcset(false) }}" type="image/jpeg"> 
-                        <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAApJREFUeNpjYAAAAAIAAeUn3vwAAAAASUVORK5CYII=" data-src="{{ text_image.url(false) }}" width="{{ page.media.images|first.width }}" height="{{ page.media.images|first.height }}" alt="{{ filename_ext[0]|humanize|replace({'-' : " "}) }}">
+                        <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAApJREFUeNpjYAAAAAIAAeUn3vwAAAAASUVORK5CYII=" width="{{ page.media.images|first.width }}" height="{{ page.media.images|first.height }}" alt="{{ filename_ext[0]|humanize|replace({'-' : " "}) }}">
                     </picture>
                     {#<img class="lazy"  style="background: #{{ colour }}"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAApJREFUeNpjYAAAAAIAAeUn3vwAAAAASUVORK5CYII=" data-src="{{ text_image.url(false) }}" data-srcset="{{ text_image.srcset(false) }}" width="{{ page.media.images|first.width }}" height="{{ page.media.images|first.height }}" alt="{{ filename_ext[0]|humanize|replace({'-' : " "}) }}">#}
                     {# <div class="lazy-placeholder"></div> #}

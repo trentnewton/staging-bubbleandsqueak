@@ -13,7 +13,7 @@
                     <picture>
                         <source data-srcset="{{ feature_image.srcset(false)|replace({'jpg' : "jpg.webp", 'jpeg' : 'jpeg.webp'}) }}" type="image/webp">
                         <source data-srcset="{{ feature_image.srcset(false) }}" type="image/jpeg"> 
-                        <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAApJREFUeNpjYAAAAAIAAeUn3vwAAAAASUVORK5CYII=" data-src="{{ feature_image.url(false) }}" width="{{ page.media[feature.graphic].width }}" height="{{ page.media[feature.graphic].height}}" alt="{{ filename_ext[0]|humanize|replace({'-' : " "}) }}">
+                        <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAApJREFUeNpjYAAAAAIAAeUn3vwAAAAASUVORK5CYII=" width="{{ page.media[feature.graphic].width }}" height="{{ page.media[feature.graphic].height}}" alt="{{ filename_ext[0]|humanize|replace({'-' : " "}) }}">
                     </picture>
                   </div>
                   <div class="card-section">
